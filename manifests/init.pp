@@ -1,10 +1,12 @@
 class chefdk {
-  exec { 'Install chefdk from cask':
+   exec { 'Install chefdk from cask':
+    
+  	user => $::boxen_user,
     command => 'brew cask install chefdk',
-    user => $boxen_user
   }
 }
 
 class maven {
 	package { 'maven': }
 }
+

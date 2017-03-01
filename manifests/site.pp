@@ -54,15 +54,14 @@ Homebrew::Formula <| |> -> Package <| |>
 node default {
   # core modules, needed for most things
   #include dnsmasq
-  include git
-  include hub
   #include nginx
   include brewcask
+  include hub
+  include git
   include maven
   include chefdk
   #include java
-  #include virtualbox
-
+  
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
     fail('Please enable full disk encryption and try again')
@@ -77,6 +76,11 @@ node default {
 
   class { 'vagrant':
     version => '1.8.4'
+  }
+
+  class { 'virtualbox':
+    version => '5.0.14',
+    patch_level => '105127'
   }
 
   # default ruby versions
