@@ -53,10 +53,13 @@ Homebrew::Formula <| |> -> Package <| |>
 
 node default {
   # core modules, needed for most things
-  include dnsmasq
+  #include dnsmasq
   include git
   include hub
-  include nginx
+  #include nginx
+  include brewcask
+  include maven
+  include chefdk
   #include java
   #include virtualbox
 
